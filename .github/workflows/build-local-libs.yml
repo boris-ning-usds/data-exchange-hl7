@@ -26,4 +26,4 @@ jobs:
           arguments: publish
           build-root-directory: local_libs/lib-dex-commons
         env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
