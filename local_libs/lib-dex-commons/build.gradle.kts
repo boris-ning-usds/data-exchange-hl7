@@ -41,7 +41,7 @@ tasks.withType<KotlinCompile> {
 
 publishing {
     publications {
-        create<MavenPublication>("lib-dex-commons") {
+        register<MavenPublication>("lib-dex-commons") {
             from(components["java"])
         }
     }
@@ -51,8 +51,8 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
         }
     }
