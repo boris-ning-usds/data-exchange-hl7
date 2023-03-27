@@ -41,7 +41,7 @@ tasks.withType<KotlinCompile> {
 
 publishing {
     publications {
-        create<MavenPublication>("myLibrary") {
+        create<MavenPublication>("lib-dex-commons") {
             from(components["java"])
         }
     }
@@ -49,7 +49,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/boris-ning-usds/lib-dex-commons")
+            url = uri("https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
