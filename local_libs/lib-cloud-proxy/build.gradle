@@ -101,10 +101,10 @@ test {
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
     reports {
-        xml.enabled true
-        csv.enabled false
-        //html.destination file("${buildDir}/jacocoHtml")
-        html.enabled true
+        // xml.enabled true
+        // csv.enabled false
+        // html.destination file("${buildDir}/jacocoHtml")
+        // html.enabled true
     }
 }
 
@@ -156,16 +156,7 @@ tasks.withType(JavaExec) {
     }
 }
 
-
-apply plugin: 'maven-publish'
-
 publishing {
-    publications {
-        register<MavenPublication>("lib-cloud-proxy") {
-            from(components["java"])
-        }
-    }
-
     repositories {
         maven {
             name = "GitHubPackages"
@@ -176,10 +167,17 @@ publishing {
             }
         }
     }
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact(kotlinSourcesJar)
+        }
+    }
 }
 
+apply plugin: 'maven-publish'
+
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
     from sourceSets.main.allSource
 }
 
