@@ -31,10 +31,10 @@ jobs:
       #   run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - lib-nist-validator
-        run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+      # - name: Publish Package - lib-nist-validator
+      #   run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
       - name: Publish Package - lib-cloud-proxy
         uses: gradle/gradle-build-action@v2.4.0
         with:
