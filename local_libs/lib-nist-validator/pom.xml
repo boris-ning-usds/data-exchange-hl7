@@ -14,20 +14,11 @@
         <revision>1.3.4-SNAPSHOT</revision>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>nexus</id>
-            <url>https://imagehub.cdc.gov/repository/maven-ede-group/</url>
-        </repository>
-    </repositories>
     <distributionManagement>
-        <snapshotRepository>
-            <id>nexus</id>
-            <url>https://imagehub.cdc.gov/repository/maven-ede-snapshot/</url>
-        </snapshotRepository>
         <repository>
-            <id>nexus</id>
-            <url>https://imagehub.cdc.gov/repository/maven-ede/</url>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
         </repository>
     </distributionManagement>
 

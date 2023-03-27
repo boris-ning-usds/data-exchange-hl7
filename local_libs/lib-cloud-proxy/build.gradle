@@ -13,9 +13,7 @@ group "gov.cdc.dex"
 
 
 repositories {
-    maven {
-        url "https://imagehub.cdc.gov/repository/maven-ede-group/"
-    }
+    mavenCentral()
 }
 
 configurations {
@@ -162,24 +160,20 @@ tasks.withType(JavaExec) {
 apply plugin: 'maven-publish'
 
 publishing {
-    repositories {
-        maven {
-            if(version.toString().endsWith("SNAPSHOT")){
-                url 'https://imagehub.cdc.gov/repository/maven-ede-snapshot/'
-            } else {
-                url 'https://imagehub.cdc.gov/repository/maven-ede/'
-            }
-
-            credentials {
-                username "$nexusUsername"
-                password "$nexusPassword"
-            }
+    publications {
+        register<MavenPublication>("lib-cloud-proxy") {
+            from(components["java"])
         }
     }
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            artifact(kotlinSourcesJar)
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }

@@ -27,7 +27,18 @@ jobs:
           build-root-directory: local_libs/lib-dex-commons
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish Package - lib-bumblebee
-        run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
+      # - name: Publish Package - lib-bumblebee
+      #   run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+      - name: Publish Package - lib-nist-validator
+        run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+      - name: Publish Package - lib-cloud-proxy
+        uses: gradle/gradle-build-action@v2.4.0
+        with:
+          arguments: publish
+          build-root-directory: local_libs/lib-cloud-proxy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
