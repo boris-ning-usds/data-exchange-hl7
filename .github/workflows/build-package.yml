@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   pull_request:
     branches: ['develop']
+  push:
+    branches: ['develop']
 
 jobs:
   publish:
@@ -17,9 +19,6 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish package
-        uses: gradle/gradle-build-action@v2.4.0
-        with:
-          arguments: publish
-          build-root-directory: mrr
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}

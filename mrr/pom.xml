@@ -15,11 +15,16 @@
         <azure.functions.maven.plugin.version>1.19.0</azure.functions.maven.plugin.version>
         <azure.functions.java.library.version>3.0.0</azure.functions.java.library.version>
         <kotlin.version>1.7.20</kotlin.version>
-
-
         <functionAppName>ocio-ede-${environment-id}-hl7-cache-loader</functionAppName>
-
     </properties>
+
+    <distributionManagement>
+        <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
