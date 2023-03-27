@@ -51,7 +51,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/boris-ning-usds/lib-dex-commons"
+            url = uri("https://maven.pkg.github.com/boris-ning-usds/lib-dex-commons")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
