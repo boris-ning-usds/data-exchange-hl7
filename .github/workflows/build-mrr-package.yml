@@ -1,10 +1,10 @@
-name: Publish package to GitHub Packages
-on:
-  workflow_dispatch:
-  pull_request:
-    branches: ['develop']
-  push:
-    branches: ['develop']
+# name: Publish package to GitHub Packages
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     branches: ['develop']
+#   push:
+#     branches: ['develop']
 # jobs:
 #   publish:
 #     runs-on: ubuntu-latest

@@ -2,7 +2,6 @@ plugins {
     id "org.jetbrains.kotlin.jvm" version "${kotlinVersion}"
     id "org.jetbrains.kotlin.kapt" version "${kotlinVersion}"
     id "org.jetbrains.kotlin.plugin.allopen" version "${kotlinVersion}"
-//    id "groovy"
     id "jacoco"
     id "maven-publish"
     id "com.google.osdetector" version "1.7.0"
@@ -17,7 +16,6 @@ repositories {
 }
 
 configurations {
-    // for dependencies that are needed for development only
     developmentOnly
 }
 
@@ -40,7 +38,6 @@ dependencies {
         exclude group: 'io.netty', module: '*'
     }
 
-//    implementation group: 'io.micronaut.azure', name: 'micronaut-azure-sdk', version: '3.3.0'
     implementation 'com.azure:azure-storage-blob:12.20.3'
     implementation 'com.azure:azure-storage-queue:12.15.3'
 
@@ -71,20 +68,11 @@ dependencies {
     kaptTest("io.micronaut:micronaut-inject-java")
     testImplementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
-//    testImplementation("io.micronaut.test:micronaut-test-spock")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    // https://mvnrepository.com/artifact/org.spockframework/spock-core
-//    testCompile group: 'org.spockframework', name: 'spock-core', version: '2.0-M4-groovy-3.0'
-//    compile "io.micronaut:micronaut-runtime-groovy"
-//    compileOnly "io.micronaut:micronaut-inject-groovy"
     testImplementation("io.micronaut.test:micronaut-test-junit5:{junitVersion}")
-//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:{junitVersion}")
-//    testRuntimeOnly 'io.netty:netty-tcnative-boringssl-static:2.0.53.Final'
     runtimeOnly 'io.netty:netty-tcnative-boringssl-static:2.0.53.Final:' + osdetector.classifier
     runtimeOnly 'io.grpc:grpc-netty-shaded:1.53.0'
-//    implementation 'io.projectreactor:reactor-core:3.4.19'
     implementation 'javax.inject:javax.inject:1'
-// https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava
     implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.21'
 }
 
@@ -118,7 +106,6 @@ allOpen {
 compileKotlin {
     kotlinOptions {
         jvmTarget = '11'
-        //Will retain parameter names for Java reflection
         javaParameters = true
     }
 }
@@ -128,21 +115,10 @@ compileTestKotlin {
         javaParameters = true
     }
 }
-//kapt {
-//    arguments {
-//        arg("micronaut.processing.incremental", true)
-//        arg("micronaut.processing.annotations", "lib.cloud.proxy.*")
-//        arg("micronaut.processing.group", "lib.cloud.proxy")
-//        arg("micronaut.processing.module", "libCloudProxy")
-//    }
-//}
+
 kapt {
     correctErrorTypes true
 }
-
-//shadowJar {
-//    mergeServiceFiles()
-//}
 
 tasks.withType(JavaExec) {
     classpath += configurations.developmentOnly
@@ -162,20 +138,18 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
     publications {
-        mavenJava(MavenPublication) {
-            from components.java
+        gpr(MavenPublication) {
+            from(components.java)
             artifact(kotlinSourcesJar)
         }
     }
 }
-
-apply plugin: 'maven-publish'
 
 task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
