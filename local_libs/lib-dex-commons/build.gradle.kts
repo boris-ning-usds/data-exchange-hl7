@@ -7,7 +7,6 @@ plugins {
     jacoco
 }
 
-group = "gov.cdc.dex"
 version = "1.0.12-SNAPSHOT"
 
 repositories {
