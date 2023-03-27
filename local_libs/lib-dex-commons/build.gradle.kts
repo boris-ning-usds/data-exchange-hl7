@@ -11,9 +11,7 @@ group = "gov.cdc.dex"
 version = "1.0.12-SNAPSHOT"
 
 repositories {
-    maven {
-        url = uri("https://imagehub.cdc.gov/repository/maven-ede-group/")
-    }
+    mavenCentral()
 }
 
 dependencies {
