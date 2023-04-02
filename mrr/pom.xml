@@ -18,11 +18,23 @@
         <functionAppName>ocio-ede-${environment-id}-hl7-cache-loader</functionAppName>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages - Data Exchange</name>
+            <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
+        </repository>
+        <repository>
+            <id>github-phinvad</id>
+            <name>GitHub Packages - Phinvad</name>
+            <url>https://maven.pkg.github.com/boris-ning-usds/phinvad-client</url>
+        </repository>
+    </repositories>
     <distributionManagement>
         <repository>
-        <id>github</id>
-        <name>GitHub Packages</name>
-        <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
         </repository>
     </distributionManagement>
 
@@ -66,7 +78,7 @@
         <dependency>
             <groupId>gov.cdc.vocab</groupId>
             <artifactId>phinvads-client</artifactId>
-            <version>2.0.0</version>
+            <version>2.1.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -81,7 +93,7 @@
         <dependency>
             <groupId>gov.cdc.dex</groupId>
             <artifactId>lib-dex-commons</artifactId>
-            <version>1.0.6-SNAPSHOT</version>
+            <version>1.0.12-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
