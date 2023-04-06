@@ -18,22 +18,21 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1.0.6
       - name: Publish Package - lib-bumblebee
         run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
         env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGE_READER }}
+      - name: Publish Package - lib-nist-validator
+        run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml -Dmaven.test.skip
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1.0.6
       - name: Publish Package - lib-dex-commons
         uses: gradle/gradle-build-action@v2.4.0
         with:
           arguments: publish
           build-root-directory: local_libs/lib-dex-commons
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish Package - lib-nist-validator
-        run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml -Dmaven.test.skip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Package - lib-cloud-proxy
