@@ -1,48 +1,48 @@
-name: Publish package to GitHub Packages
-on:
-  workflow_dispatch:
-  pull_request:
-    branches: ['develop']
-  push:
-    branches: ['develop']
+# name: Publish package to GitHub Packages
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     branches: ['develop']
+#   push:
+#     branches: ['develop']
 
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3.5.0
-      - uses: actions/setup-java@v3.10.0
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Publish Package - fn-lake-segs-transformer
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - fn-mmg-based-transformer
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-based-transformer/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - fn-mmg-sql-transformer
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-sql-transformer/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - fn-mmg-validator
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-validator/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - fn-receiver-debatcher
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-receiver-debatcher/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - fn-redactor
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-redactor/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
-      - name: Publish Package - fn-structure-validator
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-structure-validator/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+# jobs:
+#   publish:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+#       packages: write
+#     steps:
+#       - uses: actions/checkout@v3.5.0
+#       - uses: actions/setup-java@v3.10.0
+#         with:
+#           java-version: '11'
+#           distribution: 'adopt'
+#       - name: Publish Package - fn-lake-segs-transformer
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#       - name: Publish Package - fn-mmg-based-transformer
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-based-transformer/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#       - name: Publish Package - fn-mmg-sql-transformer
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-sql-transformer/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#       - name: Publish Package - fn-mmg-validator
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-validator/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#       - name: Publish Package - fn-receiver-debatcher
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-receiver-debatcher/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#       - name: Publish Package - fn-redactor
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-redactor/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
+#       - name: Publish Package - fn-structure-validator
+#         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-structure-validator/pom.xml
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
