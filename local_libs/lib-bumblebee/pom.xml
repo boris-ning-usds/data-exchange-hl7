@@ -27,6 +27,14 @@
     </dependencies>
   </dependencyManagement>
 
+  <repositories>
+      <repository>
+          <id>github-hl7-pet</id>
+          <name>GitHub Packages - hl7-pet</name>
+          <url>https://maven.pkg.github.com/boris-ning-usds/hl7-pet</url>
+      </repository>
+  </repositories>
+
   <distributionManagement>
       <repository>
       <id>github</id>
