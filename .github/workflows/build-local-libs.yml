@@ -18,6 +18,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Publish Package - lib-bumblebee
+        run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1.0.6
       - name: Publish Package - lib-dex-commons
@@ -27,10 +31,7 @@ jobs:
           build-root-directory: local_libs/lib-dex-commons
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish Package - lib-bumblebee
-        run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish Package - lib-nist-validator
         run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml -Dmaven.test.skip
         env:
