@@ -33,6 +33,13 @@
             <url>https://maven.pkg.github.com/boris-ning-usds/phinvad-client</url>
         </repository>
     </repositories>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
