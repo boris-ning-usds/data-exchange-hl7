@@ -22,9 +22,8 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1.0.6
       - name: Publish Package - lib-bumblebee
-        run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
+        run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml -Dmaven.test.skip
         env:
-          GITHUB_USER: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Package - lib-nist-validator
         run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml -Dmaven.test.skip
