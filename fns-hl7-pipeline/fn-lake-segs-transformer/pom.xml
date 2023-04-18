@@ -33,12 +33,12 @@
 
     <repositories>
         <repository>
-            <id>github</id>
+            <id>github - data exchange hl7</id>
             <name>GitHub Packages - Data Exchange HL7</name>
             <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
         </repository>
         <repository>
-            <id>github</id>
+            <id>github - hl7-pet</id>
             <name>GitHub Packages - HL7-pet</name>
             <url>https://maven.pkg.github.com/boris-ning-usds/hl7-pet</url>
         </repository>
