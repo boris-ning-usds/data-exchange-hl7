@@ -18,6 +18,6 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish Package - mrr
-        run: mvn --batch-mode deploy --file mrr/pom.xml -Dmaven.test.skip
+        run: mvn --batch-mode deploy --file svc-cloud-transport/pom.xml -Dmaven.test.skip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
