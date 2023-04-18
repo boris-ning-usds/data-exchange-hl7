@@ -18,6 +18,7 @@
 #         with:
 #           java-version: '11'
 #           distribution: 'adopt'
+#           cache: 'maven'
 #       - name: Publish Package - fn-lake-segs-transformer
 #         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml
 #         env:

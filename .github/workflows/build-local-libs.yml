@@ -18,6 +18,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+          cache: 'maven'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1.0.6
       - name: Publish Package - lib-bumblebee

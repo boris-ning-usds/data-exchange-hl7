@@ -17,6 +17,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+          cache: 'maven'
       - name: Publish Package - svc-cloud-transport
         run: mvn --batch-mode deploy --file svc-cloud-transport/pom.xml -Dmaven.test.skip
         env:
