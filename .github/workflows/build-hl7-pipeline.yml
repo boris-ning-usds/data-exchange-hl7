@@ -5,7 +5,8 @@ on:
     branches: ['develop']
   push:
     branches: ['develop']
-
+    paths:
+      - fns-hl7-pipeline/**
 jobs:
   publish:
     runs-on: ubuntu-latest
