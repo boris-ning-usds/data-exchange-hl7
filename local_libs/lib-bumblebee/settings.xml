@@ -13,7 +13,7 @@
                 <repository>
                     <id>github-hl7-pet</id>
                     <name>GitHub Packages</name>
-                    <url>https://maven.pkg.github.com/cdcgov/hl7-pet</url>
+                    <url>https://maven.pkg.github.com/boris-ning-usds/hl7-pet</url>
                 </repository>
                 <repository>
                     <id>github-hl7</id>
@@ -26,7 +26,7 @@
     
     <servers>
         <server>
-            <id>github-hl7-pet</id>
+            <id>github</id>
             <username>${env.GITHUB_USERNAME}</username>
             <password>${env.GITHUB_TOKEN}</password>
         </server>
