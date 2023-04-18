@@ -24,6 +24,7 @@ jobs:
       - name: Publish Package - lib-bumblebee
         run: mvn --batch-mode deploy --file local_libs/lib-bumblebee/pom.xml
         env:
+          GITHUB_USER: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Package - lib-nist-validator
         run: mvn --batch-mode deploy --file local_libs/lib-nist-validator/pom.xml -Dmaven.test.skip
