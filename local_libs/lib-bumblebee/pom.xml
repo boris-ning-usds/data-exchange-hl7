@@ -31,7 +31,7 @@
       <repository>
           <id>github-hl7-pet</id>
           <name>GitHub Packages - hl7-pet</name>
-          <url>https://maven.pkg.github.com/boris-ning-usds/hl7-pet</url>
+          <url>https://maven.pkg.github.com/cdcgov/hl7-pet</url>
       </repository>
   </repositories>
 

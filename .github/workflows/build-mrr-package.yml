@@ -7,6 +7,7 @@ on:
     branches: ['develop']
     paths:
       - mrr/**
+      - .github/workflows/build-mrr-package.yml
 jobs:
   publish:
     runs-on: ubuntu-latest

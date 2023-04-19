@@ -7,6 +7,7 @@ on:
     branches: ['develop']
     paths:
       - svc-cloud-transport/**
+      - .github/workflows/build-svc-transport.yml
 jobs:
   publish:
     runs-on: ubuntu-latest

@@ -7,6 +7,7 @@ on:
     branches: ['develop']
     paths:
       - fns-hl7-pipeline/**
+      - .github/workflows/build-hl7-pipeline.yml
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -20,11 +21,6 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: 'maven'
-      # - name: maven-settings-xml-action
-      #   uses: whelk-io/maven-settings-xml-action@v21
-      #   with:
-      #     repositories: '[{ "id": "github-hl7-pet", "url": "https://maven.pkg.github.com/boris-ning-usds/hl7-pet" }]'
-      #     servers: '[{ "id": "github-hl7-pet", "username": ${{ github.actor }}, "password": ${{ secrets.GITHUB_TOKEN }} }]'
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v21
         with:
