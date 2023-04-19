@@ -27,7 +27,7 @@
         <azstblob.version>12.19.0</azstblob.version>
         <gson.version>2.10.1</gson.version>
 
-        <hl7pet.version>1.2.7.1</hl7pet.version>
+        <hl7pet.version>1.2.7.2</hl7pet.version>
         <junitjupiter.version>5.9.2</junitjupiter.version>
     </properties>
 
