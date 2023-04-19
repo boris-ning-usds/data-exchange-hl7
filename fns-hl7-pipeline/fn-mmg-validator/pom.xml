@@ -33,8 +33,13 @@
     <repositories>
         <repository>
             <id>github</id>
-            <name>GitHub Packages - Data Exchange</name>
+            <name>GitHub Packages - Data Exchange HL7</name>
             <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
+        </repository>
+        <repository>
+            <id>github-cdcgov-hl7-pet</id>
+            <name>GitHub Packages - HL7-pet</name>
+            <url>https://maven.pkg.github.com/cdcgov/hl7-pet</url>
         </repository>
     </repositories>
     <distributionManagement>
@@ -50,6 +55,11 @@
             <groupId>gov.cdc.dex</groupId>
             <artifactId>lib-dex-commons</artifactId>
             <version>1.0.12-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>gov.cdc.hl7</groupId>
+            <artifactId>hl7-pet_2.13</artifactId>
+            <version>${hl7pet.version}</version>
         </dependency>
 
         <!-- Azure Functions Java Library -->
@@ -99,11 +109,6 @@
 <!--            <artifactId>validation-report</artifactId>-->
 <!--            <version>${validationreport.version}</version>-->
 <!--        </dependency>-->
-        <dependency>
-            <groupId>gov.cdc.hl7</groupId>
-            <artifactId>hl7-pet_2.13</artifactId>
-            <version>${hl7pet.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>redis.clients</groupId>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <activeProfiles>
+        <activeProfile>github</activeProfile>
+    </activeProfiles>
+
+    <profiles>
+        <profile>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Packages - Data Exchange HL7</name>
+                    <url>https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7</url>
+                </repository>
+                <repository>
+                    <id>github-cdcgov-hl7-pet</id>
+                    <name>GitHub Packages</name>
+                    <url>https://maven.pkg.github.com/cdcgov/hl7-pet</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    
+    <servers>
+        <server>
+            <id>github</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+        <server>
+            <id>github-cdcgov-hl7-pet</id>
+            <username>${env.GITHUB_USERNAME}</username>
+            <password>${env.GITHUB_TOKEN}</password>
+        </server>
+    </servers>
+</settings>
