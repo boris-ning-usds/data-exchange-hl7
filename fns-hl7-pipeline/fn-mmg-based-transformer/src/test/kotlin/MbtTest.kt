@@ -259,6 +259,16 @@ class MbtTest {
     fun testPertussis() {
         testTransformerWithRedis("testPertussis", "/PERT_V1.0.1_TM_TC01.txt")
     }
+
+    @Test
+    fun testTuberculosis() {
+        testTransformerWithRedis("testTuberculosis", "/TB and LTBI_3-0-3_TC01.txt")
+    }
+
+    @Test
+    fun testMalaria() {
+        testTransformerWithRedis("testMalaria", "/Malaria_V1.0.2__TC08.txt")
+    }
     @Test
     fun testConditionNotSupportedException() {
 
