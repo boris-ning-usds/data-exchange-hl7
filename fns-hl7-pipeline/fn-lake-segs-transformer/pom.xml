@@ -40,7 +40,7 @@
         <repository>
             <id>github-cdcgov-hl7-pet</id>
             <name>GitHub Packages - HL7-pet</name>
-            <url>https://maven.pkg.github.com/boris-ning-usds/hl7-pet</url>
+            <url>https://maven.pkg.github.com/cdcgov/hl7-pet</url>
         </repository>
     </repositories>
     <distributionManagement>

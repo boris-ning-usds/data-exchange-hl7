@@ -20,11 +20,40 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
           cache: 'maven'
+      # - name: maven-settings-xml-action
+      #   uses: whelk-io/maven-settings-xml-action@v21
+      #   with:
+      #     repositories: '[{ "id": "github-hl7-pet", "url": "https://maven.pkg.github.com/boris-ning-usds/hl7-pet" }]'
+      #     servers: '[{ "id": "github-hl7-pet", "username": ${{ github.actor }}, "password": ${{ secrets.GITHUB_TOKEN }} }]'
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v21
         with:
-          repositories: '[{ "id": "github-hl7-pet", "url": "https://maven.pkg.github.com/boris-ning-usds/hl7-pet" }]'
-          servers: '[{ "id": "github-hl7-pet", "username": ${{ github.actor }}, "password": ${{ secrets.GITHUB_TOKEN }} }]'
+          repositories: >
+            [
+              {
+                "id": "github",
+                "name": "github data exchange hl7",
+                "url": "https://maven.pkg.github.com/boris-ning-usds/data-exchange-hl7"
+              },
+              {
+                "id": "github-hl7-pet",
+                "name": "github cdcgov hl7-pet",
+                "url": "https://maven.pkg.github.com/cdcgov/hl7-pet"
+              }
+            ]
+          servers: >
+            [
+              {
+                "id": "github",
+                "username": "${{ github.actor }}",
+                "password": "${{ secrets.GITHUB_TOKEN }}"
+              },
+              {
+                "id": "github-hl7-pet",
+                "username": "${{ github.actor }}",
+                "password": "${{ secrets.GITHUB_TOKEN }}"
+              }
+            ]
       - name: Publish Package - fn-lake-segs-transformer
         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml
         env:
