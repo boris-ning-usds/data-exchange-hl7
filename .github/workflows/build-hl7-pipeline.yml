@@ -51,31 +51,30 @@ jobs:
               }
             ]
       - name: Publish Package - fn-lake-segs-transformer
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml -Dmaven.test.skip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-mmg-based-transformer
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-based-transformer/pom.xml
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-mmg-sql-transformer
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-sql-transformer/pom.xml
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-mmg-validator
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-validator/pom.xml
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-receiver-debatcher
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-receiver-debatcher/pom.xml
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-redactor
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-redactor/pom.xml
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-structure-validator
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-structure-validator/pom.xml
-      #   env:
-      #     GITHUB_USER: ${{ github.actor }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-mmg-based-transformer
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-based-transformer/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-mmg-sql-transformer
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-sql-transformer/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-mmg-validator
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-validator/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-receiver-debatcher
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-receiver-debatcher/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-redactor
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-redactor/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-structure-validator
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-structure-validator/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
