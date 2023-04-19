@@ -50,10 +50,10 @@ jobs:
                 "password": "${{ secrets.GITHUB_TOKEN }}"
               }
             ]
-      - name: Publish Package - fn-lake-segs-transformer
-        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml -Dmaven.test.skip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Publish Package - fn-lake-segs-transformer
+      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-lake-segs-transformer/pom.xml -Dmaven.test.skip
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Package - fn-mmg-based-transformer
         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-based-transformer/pom.xml -Dmaven.test.skip
         env:
