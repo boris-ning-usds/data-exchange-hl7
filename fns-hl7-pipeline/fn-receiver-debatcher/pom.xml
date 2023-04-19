@@ -103,21 +103,17 @@
             <artifactId>azure-storage-blob</artifactId>
             <version>${azstblob.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junitjupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>

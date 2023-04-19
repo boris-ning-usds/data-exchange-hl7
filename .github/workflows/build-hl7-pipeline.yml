@@ -66,10 +66,10 @@ jobs:
         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-mmg-validator/pom.xml -Dmaven.test.skip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish Package - fn-receiver-debatcher
-      #   run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-receiver-debatcher/pom.xml -Dmaven.test.skip
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package - fn-receiver-debatcher
+        run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-receiver-debatcher/pom.xml -Dmaven.test.skip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Package - fn-redactor
         run: mvn --batch-mode deploy --file fns-hl7-pipeline/fn-redactor/pom.xml -Dmaven.test.skip
         env:
